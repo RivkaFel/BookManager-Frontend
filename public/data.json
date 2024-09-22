@@ -1,0 +1,329 @@
+{
+  "books": [
+    {
+      "upc": "1",
+      "name": "צלול בדעתו",
+      "author": "אביגיל גרין",
+      "price": "60",
+      "img": "/assets/1.jpg",
+      "rating": 4,
+      "category": "קריאה"
+    },
+    {
+      "upc": "2",
+      "name": "יום אשר ברחת",
+      "author": "אביגיל גרין",
+      "price": "60",
+      "img": "/assets/2.jpg",
+      "rating": 3,
+      "category": "קריאה"
+    },
+    {
+      "upc": "3",
+      "name": "עדיין קיים",
+      "author": "אפרת מץ",
+      "price": "75",
+      "img": "/assets/3.jpg",
+      "rating": 5,
+      "category": "קריאה"
+    },
+    {
+      "upc": "4",
+      "name": "יהיו ימים",
+      "author": "ברכי בלומנברג",
+      "price": "60",
+      "img": "/assets/4.jpg",
+      "rating": 2,
+      "category": "קריאה"
+    },
+    {
+      "upc": "5",
+      "name": "נידונה לכישלון",
+      "author": "בתיה ענה",
+      "price": "65",
+      "img": "/assets/5.jpg",
+      "rating": 5,
+      "category": "קריאה"
+    },
+    {
+      "upc": "6",
+      "name": "נשארת אותו דבר",
+      "author": "גיטי ספרין",
+      "price": "55",
+      "img": "/assets/6.jpg",
+      "rating": 4,
+      "category": "קריאה"
+    },
+    {
+      "upc": "7",
+      "name": "סיפור ברובע",
+      "author": "חיה הרצברג",
+      "price": "70",
+      "img": "/assets/7.jpg",
+      "rating": 3,
+      "category": "קריאה"
+    },
+    {
+      "upc": "8",
+      "name": "לא הפסקתי לחלום",
+      "author": "חני לייזר",
+      "price": "75",
+      "img": "/assets/8.jpg",
+      "rating": 4,
+      "category": "קריאה"
+    },
+    {
+      "upc": "9",
+      "name": "מטוטלת",
+      "author": "חני לפקין",
+      "price": "64",
+      "img": "/assets/9.jpg",
+      "rating": 2,
+      "category": "קריאה"
+    },
+    {
+      "upc": "10",
+      "name": "בית ספר לקקטוסים",
+      "author": "חני רוטר",
+      "price": "58",
+      "img": "/assets/10.jpg",
+      "rating": 1,
+      "category": "קריאה"
+    },
+    {
+      "upc": "11",
+      "name": "בקצה השמיים",
+      "author": "יוכבד לוינשטיין",
+      "price": "69",
+      "img": "/assets/11.jpg",
+      "rating": 3,
+      "category": "קריאה"
+    },
+    {
+      "upc": "12",
+      "name": "זה מה שכתוב",
+      "author": "משה גוטמן",
+      "price": "60",
+      "img": "/assets/12.jpg",
+      "rating": 5,
+      "category": "קריאה"
+    },
+    {
+      "upc": "13",
+      "name": "אבק וזהב",
+      "author": "נחמה שרים",
+      "price": "65",
+      "img": "/assets/13.jpg",
+      "rating": 4,
+      "category": "קריאה"
+    },
+    {
+      "upc": "14",
+      "name": "הנה זה בא",
+      "author": "פנינה פקשר",
+      "price": "90",
+      "img": "/assets/14.jpg",
+      "rating": 3,
+      "category": "קריאה"
+    },
+    {
+      "upc": "15",
+      "name": "לב איש וכליותו",
+      "author": "קובי לוי",
+      "price": "40",
+      "img": "/assets/15.jpg",
+      "rating": 2,
+      "category": "קריאה"
+    },
+    {
+      "upc": "16",
+      "name": "יחידאי",
+      "author": "רבקה זילברמן",
+      "price": "80",
+      "img": "/assets/16.jpg",
+      "rating": 5,
+      "category": "קריאה"
+    },
+    {
+      "upc": "17",
+      "name": "חלון בתוך עשן",
+      "author": "רות רוזנשטיין",
+      "price": "50",
+      "img": "/assets/17.jpg",
+      "rating": 3,
+      "category": "קריאה"
+    },
+    {
+      "upc": "18",
+      "name": "קשר המיתרים",
+      "author": "רות רוזנשטיין",
+      "price": "60",
+      "img": "/assets/18.jpg",
+      "rating": 4,
+      "category": "קריאה"
+    },
+    {
+      "upc": "19",
+      "name": "חומות",
+      "author": "רות רפפורט",
+      "price": "75",
+      "img": "/assets/19.jpg",
+      "rating": 5,
+      "category": "קריאה"
+    },
+    {
+      "upc": "20",
+      "name": "כחול עמוק",
+      "author": "ר",
+      "price": "70",
+      "img": "/assets/20.jpg",
+      "rating": 4,
+      "category": "קריאה"
+    },
+    {
+      "upc": "21",
+      "name": "עיר של טייסים",
+      "author": "רות רפפורט",
+      "price": "72",
+      "img": "/assets/21.jpg",
+      "rating": 3,
+      "category": "קריאה"
+    },
+    {
+      "upc": "22",
+      "name": "שפויה בשבי",
+      "author": "רותי קינג",
+      "price": "65",
+      "img": "/assets/22.jpg",
+      "rating": 5,
+      "category": "קריאה"
+    },
+    {
+      "upc": "23",
+      "name": "רוזי",
+      "author": "שושי ברוידא",
+      "price": "60",
+      "img": "/assets/23.jpg",
+      "rating": 4,
+      "category": "קריאה"
+    },
+    {
+      "upc": "24",
+      "name": "טאבו משותף",
+      "author": "תמי אפשטיין",
+      "price": "56",
+      "img": "/assets/24.jpg",
+      "rating": 2,
+      "category": "קריאה"
+    },
+
+    {
+      "upc": "26",
+      "name": "מארחת שפים",
+      "author": "אפרת ליברפרוינד",
+      "price": "80",
+      "img": "/assets/26.png",
+      "rating": 4,
+      "category": "בישול"
+    },
+    {
+      "upc": "27",
+      "name": "מגישה בבית",
+      "author": "אפרת ליברפרוינד",
+      "price": "50",
+      "img": "/assets/27.png",
+      "rating": 3,
+      "category": "בישול"
+    },
+    {
+      "upc": "28",
+      "name": "מאמות ",
+      "author": "אביגייל מייזליק ",
+      "price": "60",
+      "img": "/assets/28.png",
+      "rating": 2.5,
+      "category": "בישול"
+    },
+    {
+      "upc": "29",
+      "name": "איתך במטבח",
+      "author": "אביגייל מייזליק ",
+      "price": "75",
+      "img": "/assets/29.png",
+      "rating": 4,
+      "category": "בישול"
+    },
+    {
+      "upc": "30",
+      "name": "מתוק בלב ",
+      "author": "אביגייל מייזליק ",
+      "price": "70",
+      "img": "/assets/30.png",
+      "rating": 4,
+      "category": "בישול"
+    },
+    {
+      "upc": "31",
+      "name": "ניחוחות הפשטידה  ",
+      "author": "צפורה קרייזמן ",
+      "price": "72",
+      "img": "/assets/31.png",
+      "rating": 4,
+      "category": "בישול"
+    },
+    {
+      "upc": "32",
+      "name": "ניחוחות שבת וחג  ",
+      "author": "צפורה קרייזמן ",
+      "price": "65",
+      "img": "/assets/32.png",
+      "rating": 4,
+      "category": "בישול"
+    },
+    {
+      "upc": "33",
+      "name": "ניחוחות בירוק  ",
+      "author": "צפורה קרייזמן ",
+      "price": "60",
+      "img": "/assets/33.png",
+      "rating": 1,
+      "category": "בישול"
+    },
+    {
+      "upc": "34",
+      "name": "פשוט טעים",
+      "author": "אביגייל מייזליק ",
+      "price": "56",
+      "img": "/assets/34.png",
+      "rating": 4,
+      "category": "בישול"
+    },
+    {
+      "upc": "35",
+      "name": "עוגות בחושות",
+      "author": " אפרת ליברפרוינד",
+      "price": "65",
+      "img": "/assets/35.png",
+      "rating": 4,
+      "category": "בישול"
+    },
+    {
+      "upc": "36",
+      "name": "ספר החינוך",
+      "author": "בעילום שם",
+      "price": "56",
+      "img": "/assets/36.png",
+      "rating": 4,
+      "category": "קודש"
+    },
+    {
+      "upc": "37",
+      "name": "לקח טוב ",
+      "author": " הרב בייפוס",
+      "price": "65",
+      "img": "/assets/37.png",
+      "rating": 4,
+      "category": "קודש"
+    }
+  ]
+}
