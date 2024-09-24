@@ -35,7 +35,7 @@ const BooksList = () => {
         <Grid container spacing={5}>
           {/* אם מצאנו ספרים שמתאימים לחיפוש נציג אותם, אחרת נכתוב "לא נמצאו תוצאות" */}
           {filteredbyCategories.length > 0 ? (
-            filteredbyCategories.slice(0, booksNumbers).map((book) => (
+            filteredbyCategories.map((book) => (
               <Grid item xs={12} sm={12} md={2} key={book?.upc}>
                 <Link to={book?.name} style={{ textDecoration: "none" }}>
                   <Paper style={{ height: "100%" }} sx={{ paddingBottom: "5px" }}>
