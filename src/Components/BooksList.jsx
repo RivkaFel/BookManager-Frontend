@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { getAllBooks } from '../Services/books';
-import { Container, Grid, Paper, Typography, Box, Button } from '@mui/material';
+import { Container, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Typography, Box, Button } from '@mui/material';
 import { Link } from 'react-router-dom';
 import "../style/bookList.css";
 
@@ -8,7 +8,6 @@ const BooksList = () => {
   const [books, setBooks] = useState([]); // רשימת הספרים
   const [errorMessage, setErrorMessage] = useState(''); // הודעת שגיאה
   const [filteredbyCategories, setFilteredbyCategories] = useState([]); // סינון לפי קטגוריות
-  const [booksNumbers, setBooksNumbers] = useState(10); // מספר הספרים שיוצגו (אם רלוונטי)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -27,51 +26,63 @@ const BooksList = () => {
 
   return (
     <>
-    <h1>Books Manager: </h1>
-    <Button>Add new book</Button>
-    <Container className="container">
-      {/* רנדור הספרים רק במצב שטעינת הספרים הצליחה, אחרת נציג את הודעת השגיאה */}
-      {errorMessage === '' ? (
-        <Grid container spacing={5}>
-          {/* אם מצאנו ספרים שמתאימים לחיפוש נציג אותם, אחרת נכתוב "לא נמצאו תוצאות" */}
-          {filteredbyCategories.length > 0 ? (
-            filteredbyCategories.map((book) => (
-              <Grid item xs={12} sm={12} md={2} key={book?.upc}>
-                <Link to={book?.name} style={{ textDecoration: "none" }}>
-                  <Paper style={{ height: "100%" }} sx={{ paddingBottom: "5px" }}>
-                    <Typography variant="h5" component="h4">
-                      {book?.name}
-                    </Typography>
-                    <Typography variant="body1" component="p">
-                      סופר.ת: {book?.author}
-                    </Typography>
-                    <img
-                      src={book?.img}
-                      alt="Book Cover"
-                      className="book-img"
-                    />
-                     <Button>Edit</Button>
-                    <Button>Delete</Button>
-                  </Paper>
-                </Link>
-              </Grid>
-            ))
+      <h1>Books Manager: </h1>
+      <Button>Add new book</Button>
+      <Container className="container">
+        {/* רנדור הספרים רק במצב שטעינת הספרים הצליחה, אחרת נציג את הודעת השגיאה */}
+        {errorMessage === '' ? (
+          filteredbyCategories.length > 0 ? (
+            <TableContainer component={Paper}>
+              <Table sx={{ minWidth: 650 }} aria-label="books table">
+                <TableHead>
+                  <TableRow>
+                    <TableCell>Name</TableCell>
+                    <TableCell>Author</TableCell>
+                    <TableCell>Cover</TableCell>
+                    <TableCell>Actions</TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  {filteredbyCategories.map((book) => (
+                    <TableRow key={book?.upc}>
+                      <TableCell component="th" scope="row">
+                        <Link to={book?.name} style={{ textDecoration: "none", color: "inherit" }}>
+                          {book?.name}
+                        </Link>
+                      </TableCell>
+                      <TableCell>{book?.author}</TableCell>
+                      <TableCell>
+                        <img
+                          src={book?.img}
+                          alt="Book Cover"
+                          className="book-img"
+                          style={{ width: "50px", height: "75px" }}
+                        />
+                      </TableCell>
+                      <TableCell>
+                        <Button>Edit</Button>
+                        <Button>Delete</Button>
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </TableContainer>
           ) : (
             <Box>
               <Typography variant="h4" component="h4" style={{ paddingTop: "100px", paddingLeft: "500px" }}>
                 לא נמצאו תוצאות
               </Typography>
             </Box>
-          )}
-        </Grid>
-      ) : (
-        <Box>
-          <Typography variant="h4" component="h4">
-            {errorMessage}
-          </Typography>
-        </Box>
-      )}
-    </Container>
+          )
+        ) : (
+          <Box>
+            <Typography variant="h4" component="h4">
+              {errorMessage}
+            </Typography>
+          </Box>
+        )}
+      </Container>
     </>
   );
 };
