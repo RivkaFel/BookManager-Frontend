@@ -1,54 +1,76 @@
 import React, { useEffect, useState } from 'react';
 import { getAllBooks } from '../Services/books';
 import { Container, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Typography, Box, Button } from '@mui/material';
-import { Link } from 'react-router-dom';
+import AddBookForm from './AddBookForm'; // ייבוא הקומפוננטה של טופס הוספת ספר
 import "../style/bookList.css";
 
 const BooksList = () => {
   const [books, setBooks] = useState([]); // רשימת הספרים
   const [errorMessage, setErrorMessage] = useState(''); // הודעת שגיאה
-  const [filteredbyCategories, setFilteredbyCategories] = useState([]); // סינון לפי קטגוריות
+  const [filteredbyUPC, setFilteredbyUPC] = useState([]); // סינון לפי קטגוריות
+  const [showAddBookForm, setShowAddBookForm] = useState(false); // שליטה בהצגת הטופס להוספת ספר
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const allBooks = await getAllBooks();
-        setBooks(allBooks);
-        setFilteredbyCategories(allBooks); // הגדרת הספרים המסוננים לתחילה כל הספרים
+        
+        // מיון הספרים לפי UPC בסדר עולה
+        const sortedBooks = allBooks.sort((a, b) => a.upc - b.upc);
+        
+        setBooks(sortedBooks);
+        setFilteredbyUPC(sortedBooks); // הגדרת הספרים המסוננים לתחילה כל הספרים
         setErrorMessage(''); // איפוס הודעת השגיאה
       } catch (error) {
-        setErrorMessage('Error occurred while fetching the books'); // שמירת השגיאה כדי שנוכל לשלוח אותה לקומפוננטה של הודעת השגיאה
+        setErrorMessage('Error occurred while fetching the books');
         console.log("Error occurred while fetching the books:", error);
       }
     };
     fetchData();
   }, []);
+  
+
+  // פונקציה שמוסיפה ספר חדש לרשימה
+  const handleAddBook = (newBook) => {
+    setBooks([...books, newBook]); // הוספת הספר החדש לרשימת הספרים
+    setFilteredbyUPC([...filteredbyUPC, newBook]); // עדכון הרשימה המסוננת עם הספר החדש
+    setShowAddBookForm(false); // סגירת הטופס לאחר ההוספה
+  };
 
   return (
     <>
       <h1>Books Manager: </h1>
-      <Button>Add new book</Button>
+
+      {/* כפתור להצגת/הסתרת טופס הוספת ספר */}
+      <Button onClick={() => setShowAddBookForm(!showAddBookForm)}>
+        {showAddBookForm ? "Cancel" : "Add new book"}
+      </Button>
+
+      {/* הצגת טופס הוספת ספר במידה והמשתמש לחץ על הכפתור */}
+      {showAddBookForm && <AddBookForm onAddBook={handleAddBook} books={books}/>}
+
       <Container className="container">
         {/* רנדור הספרים רק במצב שטעינת הספרים הצליחה, אחרת נציג את הודעת השגיאה */}
         {errorMessage === '' ? (
-          filteredbyCategories.length > 0 ? (
+          filteredbyUPC.length > 0 ? (
             <TableContainer component={Paper}>
               <Table sx={{ minWidth: 650 }} aria-label="books table">
                 <TableHead>
                   <TableRow>
+                    <TableCell>UPC</TableCell>
                     <TableCell>Name</TableCell>
                     <TableCell>Author</TableCell>
                     <TableCell>Cover</TableCell>
+                    <TableCell>Price</TableCell>
                     <TableCell>Actions</TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {filteredbyCategories.map((book) => (
+                  {filteredbyUPC.map((book) => (
                     <TableRow key={book?.upc}>
+                      <TableCell>{book?.upc}</TableCell>
                       <TableCell component="th" scope="row">
-                        <Link to={book?.name} style={{ textDecoration: "none", color: "inherit" }}>
                           {book?.name}
-                        </Link>
                       </TableCell>
                       <TableCell>{book?.author}</TableCell>
                       <TableCell>
@@ -59,6 +81,7 @@ const BooksList = () => {
                           style={{ width: "50px", height: "75px" }}
                         />
                       </TableCell>
+                      <TableCell>{book?.price}</TableCell>
                       <TableCell>
                         <Button>Edit</Button>
                         <Button>Delete</Button>

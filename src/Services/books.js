@@ -9,6 +9,15 @@ const getAllBooks = async () => {
   }
 };
 
+const createBook = async (book) => {
+  try {
+    const res = await axiosClient.post("Book",book);   
+    return res.data
+  } catch (error) {
+    throw error;
+  }
+};
 
 
-export {getAllBooks};
+
+export {getAllBooks, createBook};
