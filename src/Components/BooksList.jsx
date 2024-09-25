@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getAllBooks } from '../Services/books';
+import { deleteBook, getAllBooks } from '../Services/books';
 import { Container, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Typography, Box, Button } from '@mui/material';
 import AddBookForm from './AddBookForm'; // ייבוא הקומפוננטה של טופס הוספת ספר
 import "../style/bookList.css";
@@ -36,6 +36,37 @@ const BooksList = () => {
     setFilteredbyUPC([...filteredbyUPC, newBook]); // עדכון הרשימה המסוננת עם הספר החדש
     setShowAddBookForm(false); // סגירת הטופס לאחר ההוספה
   };
+
+  const handleDeleteBook = async (bookId) => {
+    try {
+      await deleteBook(bookId);
+      setBooks(books.filter(book => book.upc!== bookId));
+      //setFilteredbyUPC(...filteredbyUPC); // עדכון הרשימה המסוננת עם הספר החדש
+      console.log(bookId);  
+
+    } catch (error) {
+      alert("eror: " + error.message);
+    }
+   
+  };
+  
+ /*
+  const BookList = ({ books, setBooks }) => {
+    const handleDeleteBook = (bookId) => {
+      setBooks(books.filter(book => book.id !== bookId));
+    };
+  
+   return (
+      <div>
+        {books.map(book => (
+          <div key={book.id}>
+            <p>{book.title} by {book.author}</p>
+            <button onClick={() => handleDeleteBook(book.id)}>Delete</button>
+          </div>
+        ))}
+      </div>
+    );
+  };*/
 
   return (
     <>
@@ -84,7 +115,7 @@ const BooksList = () => {
                       <TableCell>{book?.price}</TableCell>
                       <TableCell>
                         <Button>Edit</Button>
-                        <Button>Delete</Button>
+                        <Button onClick={handleDeleteBook}>Delete</Button>
                       </TableCell>
                     </TableRow>
                   ))}

@@ -18,6 +18,16 @@ const createBook = async (book) => {
   }
 };
 
+const deleteBook = async (bookUPC) => {
+  try {
+    const res = await axiosClient.delete(`book/${bookUPC}`);   
+    return res.data
+  } catch (error) {
+    throw error;
+  }
+};
 
 
-export {getAllBooks, createBook};
+
+
+export {getAllBooks, createBook,deleteBook};
